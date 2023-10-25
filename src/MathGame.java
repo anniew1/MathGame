@@ -138,7 +138,7 @@ public class MathGame {
         }
     }
 
-    // swaps the currentPlayer to the other player
+    // swaps the currentPlayer to the next player in line
     private void swapPlayers() {
         if (currentPlayer == player1) {
             currentPlayer = player2;
