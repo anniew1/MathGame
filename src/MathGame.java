@@ -105,8 +105,16 @@ public class MathGame {
 
     // asks a math question and returns true if the player answered correctly, false if not
     private boolean askQuestion() {
+        String mode;
+        System.out.print("Easy/Hard Question (Hard gives +2): ");
+        mode = scanner.nextLine();
         int operation = (int) (Math.random() * 4) + 1;
-        int num1 = (int) (Math.random() * 100) + 1;
+        int num1;
+        if (mode.equals("hard")){
+            num1 = (int) (Math.random() * 1000) + 1;
+        } else {
+            num1 = (int) (Math.random() * 100) + 1;
+        }
         int num2;
         int correctAnswer;
         System.out.println("Type in your answer as an integer (/ is int division)");
@@ -132,6 +140,9 @@ public class MathGame {
         scanner.nextLine(); // clear text buffer after numeric scanner input
 
         if (playerAnswer == correctAnswer) {
+            if (mode.equals("hard")){
+                currentPlayer.incrementScore();
+            }
             return true;
         } else {
             return false;
